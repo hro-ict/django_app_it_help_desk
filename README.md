@@ -1,4 +1,4 @@
-# Django Virtual Environment Project
+# Django IT Helpdesk Ticketsystem Project
 
 This project is developed using the Django web framework and run in a virtual environment.
 
@@ -10,7 +10,7 @@ This guide provides general information on how to set up the project and run it 
 
 To run the project, you will need the following software and tools:
 
-- Python 3.x
+- Python 3.9.4
 - pip (Python package manager)
 
 ### Installation
