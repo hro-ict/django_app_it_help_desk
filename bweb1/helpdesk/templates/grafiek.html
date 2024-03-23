@@ -1,0 +1,159 @@
+
+{% extends 'master.html' %}
+{% load static %}
+{% block content %}
+
+{% include "partials/_admin.html" %}
+
+<script>
+    window.onload = function () {
+        var chart = new CanvasJS.Chart("chartContainer", {
+          animationEnabled: true,
+          exportEnabled: true,
+         
+          title:{
+            text: "Aantal meldingen  {{ days }} dagen ",
+            fontFamily: "Tahoma"
+          },
+        
+           axisY: {
+            title: "Aantal meldingen  {{ days }} dagen ",
+            interval: 1
+          },
+          axisX: {
+            labelAngle:90,
+            interval: 1
+          },
+          data: [{
+            type: '{{ chart_type }}',
+            
+            dataPoints: {{ datapoints|safe }}
+          }]
+        });
+        chart.render();
+
+
+        var pi_chart = new CanvasJS.Chart("pi_chart", {
+            exportEnabled: true,
+            animationEnabled: true,
+            title: {
+              text: "Open-Gesloten Meldingen"
+            },
+            data: [{
+              type: "pie",
+              legendText: "{label}",
+              yValueFormatString: "#,###\"%\"",
+              indexLabel: "{label} ({y})",
+              dataPoints: {{ ticket_state|safe }}
+            }]
+          });
+          pi_chart.render();
+    }
+
+
+//pi chart
+
+</script>    
+
+
+
+
+<div class="container mb-4 ">
+  
+<form class="d-flex justify-content-between" >
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" value="7"  name="days" id="7">
+    <label class="form-check-label text-dark" for="7">
+      1 Week
+    </label>
+  </div>
+  <div class=" form-check form-check-inline">
+    <input class="form-check-input" type="radio" value="30"  name="days" id="30" >
+    <label class="form-check-label text-dark" for="30">
+      1 Maand
+    </label>
+  </div>
+
+  <div class=" form-check form-check-inline">
+    <input class="form-check-input" type="radio" value="365"  name="days" id="365" >
+    <label class="form-check-label text-dark" for="365">
+      1 jaar
+    </label>
+  </div>
+
+  <!-- <div class=" form-check form-check-inline">
+    <input class="form-check-input" value="28" type="radio" name="days" id="flexRadioDefault4" >
+    <label class="form-check-label text-dark" for="flexRadioDefault4">
+      4 Weken
+    </label>
+  </div> -->
+
+ 
+<div class="col-3">
+  <select id="chart_type" class="form-select" name="chart_type" >
+  
+    <option id="column" value="column">Column</option>
+    <option id="line" value="line">Line</option>
+    <option id="scatter" value="scatter">Scatter</option>
+    <option id="area" value="area">Area</option>
+  </select>
+</div>
+
+
+
+
+  <button class="btn btn-primary" type="submit">Submit</button>
+
+
+
+</form>
+
+
+
+
+
+</div>
+
+
+
+<div class="row">
+  
+    <div class="col me-5 ms-3" id="chartContainer" style="width: 100%; height: 360px;"></div>
+<!-- 
+    <div class="col me-5" id="pi_chart" style="width: 100%; height: 360px;"></div> -->
+</div>
+
+
+
+<script src="{% static 'js/canvasjs.min.js' %}"></script>
+
+
+<script>
+  // Zoek alle radiobuttons
+  const radioButtons = document.querySelectorAll('input[name="flexRadioDefault"]');
+  
+  // Voeg een event listener toe aan elk radiobutton
+  radioButtons.forEach(radioButton => {
+    radioButton.addEventListener('change', function() {
+      // Controleer welke radiobutton is geselecteerd
+      if (this.checked) {
+        console.log("Geselecteerde radiobutton: ", this.value);
+       
+      }
+    });
+  });
+
+
+
+  $("#{{ days }}").prop("checked", true)
+
+
+  $('#chart_type option[value="{{ chart_type }}"]').prop('selected', true);
+
+</script>
+
+
+
+{% endblock %} 
+
+

@@ -1,0 +1,174 @@
+
+ {% load static %} 
+
+
+ <nav class="navbar navbar-dark bg-info navbar-expand-lg ">
+            <div class="container">
+                <a class="navbar-brand text-dark" href="/">
+                        <img
+                        src="{% static 'images/logo.PNG' %}"
+                        class="rounded-circle"
+                        height="50"
+                        alt="Black and White Portrait of a Man"
+                        loading="lazy"
+                      />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="{% url 'all_tickets' %}">Meldingen </a>
+                        </li>
+                     
+
+                        <li class="nav-item">
+                                    <a id="grafiek" class="nav-link text-dark"  href="{% url 'grafiek' %}">Grafieken </a>
+                                </li>
+                    <li class="nav-item">
+                        <a id="users" class="nav-link text-dark"  href="{% url 'users' %}">Users </a>
+                    </li>
+                    </ul>
+                    <div class="d-flex justify-content-evenly">
+
+
+
+                         <div id="settings" class="me-3">
+                         <img height="40" src="{% static 'images/settings.png'%}" alt="">
+                     </div>
+                      <div class="me-3">
+                          <a href="/logout">
+                              <img height="40" src="{% static 'images/logout.png'%}" alt="">
+                          </a>
+
+                     </div>
+
+                 </div>
+                   <div class="text-dark">
+                          Welkom {{ request.session.name|title }}
+                      </div>
+                        </div>
+                        </div>
+
+
+
+
+
+                                 
+                            </li>
+                    
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+<div class="container mt-5 pt-5 ">
+
+          
+        {% comment %} <table class="table" >
+          <thead>
+            <tr>
+              <th>Ticketnumber</th>
+              <th>User</th>
+              <th>Date</th>
+              <th>Description</th>
+              <th>Solution</th>
+              <th>State</th>
+            </tr>
+          </thead>
+          <tbody>
+           
+        
+          
+          </tbody>
+        </table> {% endcomment %}
+
+
+
+</div>
+
+{% csrf_token %}
+<script>
+$("#all_tickets").click(function(){
+    $("tbody").empty()
+    var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+$.ajax({
+   type: 'POST',
+   url:'/grafiek',
+   data:'',
+   beforeSend: function (xhr){
+     xhr.setRequestHeader('X-CSRFToken', csrftoken);
+   },
+   success:function(data){
+    data.forEach(element => {
+        html= `
+        <tr>
+        <td>${element.id}</td>
+        <td>${element.user}</td>
+        <td>${element.date}</td>
+        <td>${element.description}</td>
+        <td>${element.solution==null ? "": element.solution}</td>
+        <td>${element.is_open ? "Open": "Closed"}</td>
+        </tr>
+        `
+        $("tbody").append(html)
+    });
+   },
+   error: function(){
+   }
+});
+})
+     
+
+
+// openstaande meldingen
+
+$("#open_tickets").click(function(){
+    $("tbody").empty()
+    var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+$.ajax({
+   type: 'POST',
+   url:'/tickets',
+   data:'',
+   beforeSend: function (xhr){
+     xhr.setRequestHeader('X-CSRFToken', csrftoken);
+   },
+   success:function(data){
+    data.forEach(element => {
+       
+        html= `
+        <tr>
+        <td>${element.id}</td>
+        <td>${element.user}</td>
+        <td>${element.date}</td>
+        <td>${element.description}</td>
+        <td>${element.solution==null ? "": element.solution}</td>
+        <td>${element.is_open ? "Open": "Closed"}</td>
+        </tr>
+        `
+        if (element.is_open){
+            $("tbody").append(html)
+        }
+        
+    });
+   },
+   error: function(){
+   }
+});
+})
+
+
+
+
+
+
+
+/////
+
+
+
+////
+
+</script>

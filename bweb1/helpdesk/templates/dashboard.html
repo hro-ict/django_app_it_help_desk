@@ -1,0 +1,15 @@
+{% extends 'master.html' %}
+
+{% block content %}
+
+{% if request.session.role == 'admin'  %}
+
+{% include "partials/_admin.html" %}
+
+{% else %}
+
+{% include "partials/_user.html" %}
+
+{% endif %}
+
+{% endblock %}  

@@ -1,0 +1,31 @@
+{% extends 'master.html' %}
+
+
+
+{% block content %}
+<div class="container">
+
+            <h1 class="text-center mt-5"> <span class="badge bg-secondary">Welcome to IT-Helpdesk</span></h1>
+
+            <h1>
+              {{ request.session.name }}
+            </h1>
+
+            <h1 class="text-dark">{{name }}</h1>
+
+<div class="position-absolute top-50 start-50 translate-middle">
+  <a href="/login_admin">
+            <button class="btn btn-danger fw-bold">Login as Admin</button>
+</a>
+            <br>
+<a href="/login_user">
+            <button class="btn btn-primary mt-3 fw-bold ms-2 ">Login as User</button>
+</a>
+             <br>
+
+         <hr class="border-5 text-dark"></hr>
+<a href="/register">
+            <button class="btn btn-info mt-1 fw-bold ms-4 ">Register</button>
+</a>
+</div>
+{% endblock %}        

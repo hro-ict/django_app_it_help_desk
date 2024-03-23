@@ -1,0 +1,42 @@
+{% extends 'master.html' %}
+
+{% block content %}
+
+{% include "partials/_user.html" %}
+
+
+<div class="container mt-0">
+  <h2 class="text-center fw-bold text-dark">
+    <span class="badge bg-danger">
+      NIEUWE MELDING
+    </span>
+    
+  </h2>
+    <div class="container  col-8 bg-warning">
+     
+        <form method="POST">
+          {% if response %}
+          <h3 class="alert alert-info">
+            {{ response }}
+          </h3>
+          {% endif %}
+          {% csrf_token %}
+          <div class="mb-3 mt-3">
+            <label class="text-dark fw-bold mt-5" for="email">Email</label>
+            <input name="email" type="email" class="form-control" id="email" value="{{ request.session.user_email }}" name="email" readonly>
+          </div>
+          <div class="mb-3">
+            <label class="text-dark fw-bold" for="problem">Probleem:</label>
+            <textarea class="form-control" name="problem" id="problem" rows="5"></textarea>
+          </div>
+         
+          <button type="submit" class="btn btn-primary w-100 mb-5">Verzenden</button>
+        </form>
+      </div>
+
+
+</div>
+
+
+
+{% endblock %} 

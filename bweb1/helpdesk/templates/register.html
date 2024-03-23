@@ -1,0 +1,96 @@
+
+{% extends 'master.html' %}
+{% load static %}
+
+{% block content %}
+<section class=" vh-100" style="background-color: #9A616D;">
+            <div class="container py-5 h-100">
+              <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col col-xl-10">
+                  <div class="card" style="border-radius: 1rem;">
+                    <div class="row g-0">
+                      <div class="col-md-6 col-lg-5 d-none d-md-block">
+                        <img src="{% static 'images/signup.png' %}"
+                          alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem; height: 100%" />
+                      </div>
+                      <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                        <div class="card-body  text-black">
+          
+                          <form method="post">
+
+                        
+                            <div class="d-flex align-items-center ">
+                              <!-- <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i> -->
+                        
+                           
+                            </div>
+          
+                            <h5 class="fw-bold text-center " style="letter-spacing: 1px;">Sign up</h5>
+
+                            
+                         
+
+
+                            {% if error %}
+                            <hr>
+                            {% for x in error %}
+                            
+                           <li class="alert alert-danger"> {{ x }}</li>
+                             
+
+                            {% endfor %}
+                            <hr>
+                            {% endif %}
+
+                            {% csrf_token %} 
+                            <div class="form-outline mb-4">
+                              <span  class="form-text">
+                                Verplicht. Minimaal 2 maximaal 50 karakters
+                              </span>
+                              <input type="text" name="name" id="name" class="form-control form-control-lg" required/>
+                              <label class="form-label fw-bold" for="name">Name</label>
+                            </div>
+          
+                            <div class="form-outline mb-4">
+                              <span  class="form-text">
+                                Verplicht. Minimaal 2 maximaal 50 karakters
+                              </span>
+                              <input type="email" id="email" name="email" class="form-control form-control-lg" required/>
+                              <label class="form-label fw-bold" for="email">Email</label>
+                            </div>
+
+            
+
+                            <div class="form-outline mb-4">
+                              <span  class="form-text font-italic">
+                                Verplicht. Minimaal 8 karakters. Ten minste 1 hoofdletter, 1 kleine letter, 1 getal
+                              </span>
+                              <input type="password" id="password" name="password" class="form-control form-control-lg" required />
+                              <label class="form-label fw-bold" for="password">Password</label>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                              <input type="password" id="re_password" name="re_password" class="form-control form-control-lg" required/>
+                              <label class="form-label fw-bold" for="re_password">Repeat password</label>
+                            </div>
+          
+                            <div class=" mb-4">
+                              <button class="btn btn-info btn-lg btn-block w-100" type="submit">Register</button>
+                            </div>
+          
+                          </form>
+          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+
+
+
+
+{% endblock %}  

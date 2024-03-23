@@ -1,0 +1,119 @@
+
+
+
+
+
+
+
+[
+            {
+                        "name": "Mark",
+                        "email": "mark@ithelpdesk.nl",
+                        "password": "qwer1234"
+                      },
+                      {
+                        "name": "John",
+                        "email": "john@ithelpdesk.nl",
+                        "password": "qwer1234"
+                      },
+                      {
+                        "name": "Emma",
+                        "email": "emma@ithelpdesk.nl",
+                        "password": "qwer1234"
+                      },
+                      {
+                        "name": "Alice Smith",
+                        "email": "alice.smith@ithelpdesk.nl",
+                        "password": "qwer1234"
+                      },
+                      {
+                        "name": "Bob Johnson",
+                        "email": "bob.johnson@ithelpdesk.nl",
+                        "password": "qwer1234"
+                      },
+                      {
+                        "name": "Eva Davis",
+                        "email": "eva.davis@ithelpdesk.nl",
+                        "password": "qwer1234"
+                      },
+                      {
+                        "name": "David Brown",
+                        "email": "david.brown@ithelpdesk.nl",
+                        "password": "qwer1234"
+                      },
+                      {
+                        "name": "Sophia Wilson",
+                        "email": "sophia.wilson@ithelpdesk.nl",
+                        "password": "qwer1234"
+                      }
+                      
+
+]
+
+
+
+2024-01-01
+2024-01-02
+2024-01-03
+2024-01-04
+2024-01-05
+2024-01-06
+2024-01-07
+2024-01-08
+2024-01-09
+2024-01-10
+2024-01-11
+2024-01-12
+2024-01-13
+2024-01-14
+2024-01-15
+2024-01-16
+2024-01-17
+2024-01-18
+2024-01-19
+2024-01-20
+2024-01-21
+2024-01-22
+2024-01-23
+2024-01-24
+2024-01-25
+2024-01-26
+2024-01-27
+2024-01-28
+2024-01-29
+2024-01-30
+2024-01-31
+
+Zou je me in de volgende format een json file aanmaken?
+
+{
+ "date": "2024-01-01",
+ "desciption": "Scherm geeft willekeurige flikkeringen",
+ "user": 5
+}
+
+Dat moet aande volgende eisen voldaan:
+Date: vanaf 1 januari 2024 tot/m 31 december 2024. Dus je moet beginnen vana 1 januari 2024 en eindigen 31 december 2024. voor elke dag twee data
+desciption: Verzin maar een ICT issue
+user: een getal tussen 14 en 27
+
+
+
+
+
+robin@ithelpdesk.nl
+frank@ithelpdesk.nl
+hasan@ithelpdesk.nl
+omar@ithelpdesk.nl
+jan@ithelpdesk.nl
+robert@ithelpdesk.nl
+asAS@ITHEPLDESK.NL
+aaa@aaaa.nl
+mark@ithelpdesk.nl
+john@ithelpdesk.nl
+emma@ithelpdesk.nl
+alice.smith@ithelpdesk.nl
+bob.johnson@ithelpdesk.nl
+eva.davis@ithelpdesk.nl
+david.brown@ithelpdesk.nl
+sophia.wilson@ithelpdesk.nl

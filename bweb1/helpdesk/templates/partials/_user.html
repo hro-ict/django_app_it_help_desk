@@ -1,0 +1,84 @@
+
+{% load static %} 
+
+
+<nav class="navbar navbar-dark bg-info navbar-expand-lg ">
+           <div class="container">
+               <a class="navbar-brand text-dark" href="/">
+                       <img
+                       src="{% static 'images/logo.PNG' %}"
+                       class="rounded-circle"
+                       height="50"
+                       alt="Black and White Portrait of a Man"
+                       loading="lazy"
+                     />
+               </a>
+               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
+                   <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse" id="navbar">
+                   <ul class="navbar-nav me-auto">
+                       <li class="nav-item">
+                           <a class="nav-link text-dark" href="{% url 'user_tickets' %}">Mijn meldingen </a>
+                       </li>
+                       <li class="nav-item">
+                           <a class="nav-link text-dark"  href="{% url 'new_ticket' %}">Nieuwe melding </a>
+                           <!-- <a class="nav-link text-dark" href="#">Alle meldingen</a> -->
+                       </li>
+
+                     
+                   </ul>
+
+                   
+                 <div class="d-flex justify-content-evenly">
+
+
+                     <div class="me-5">
+                            <img height="40" src="{% static 'images/message.png'%}" alt="">
+                     <span class="position-absolute top-75 badge rounded-pill bg-danger">
+    3
+
+                     </div>
+                         <div id="settings" class="me-3">
+                         <img height="40" src="{% static 'images/settings.png'%}" alt="">
+                     </div>
+                      <div class="me-3">
+                          <a href="/logout">
+                              <img height="40" src="{% static 'images/logout.png'%}" alt="">
+                          </a>
+
+                     </div>
+
+                 </div>
+                   <div class="text-dark">
+                          Welkom {{ request.session.name|title }}
+                      </div>
+               </div>
+           </div>
+       </nav>
+
+<div class="container mt-5 pt-5 ">
+
+         
+       {% comment %} <table class="table" >
+         <thead>
+           <tr>
+             <th>Ticketnumber</th>
+             <th>User</th>
+             <th>Date</th>
+             <th>Description</th>
+             <th>Solution</th>
+             <th>State</th>
+           </tr>
+         </thead>
+         <tbody>
+          
+       
+         
+         </tbody>
+       </table> {% endcomment %}
+
+
+
+</div>
+

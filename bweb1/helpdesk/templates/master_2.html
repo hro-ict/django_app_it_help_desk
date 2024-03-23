@@ -1,0 +1,110 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>IT-Helpdesk</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.js"></script>
+<link href="{% static 'style/style.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.css">
+    <script src="{% static 'js/script.js' %}"></script>
+<title>IT-Helpdesk</title>
+{% block bg_image %}
+
+
+{% endblock %}
+<style>
+
+
+body {
+background-image: url("{% static 'images/helpdesk.PNG' %}");
+background-size: cover;
+
+color: #fff;
+}
+
+
+</style>
+</head>
+<body>
+{% block content %}
+{% endblock %}
+
+
+<!-- The Modal -->
+<div class="modal" id="settings_modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+<label for="lettertype" class="text-dark">Lettertype</label>
+          <select id="lettertype"  class="form-select" aria-label="Default select example">
+
+  <option value="times_new_roman" selected>Times New Roman</option>
+  <option value="arial">Arial</option>
+  <option value="lucida">Lucida </option>
+</select>
+          <hr class="border border-5">
+<!--lettrsize-->
+          <h6 class="text-dark">Lettergroote</h6>
+    <div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="16">
+  <label class="form-check-label text-dark" for="inlineRadio1">16</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="18">
+  <label class="form-check-label text-dark" for="inlineRadio2">18</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input " type="radio" name="inlineRadioOptions" id="inlineRadio3" value="20">
+  <label class="form-check-label text-dark" for="inlineRadio3">20</label>
+</div>
+
+          <div class="form-check form-check-inline">
+  <input class="form-check-input " type="radio" name="inlineRadioOptions" id="inlineRadio4" value="22">
+  <label class="form-check-label text-dark" for="inlineRadio4">22</label>
+</div>
+
+          <!--lettrsize-->
+
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+    $("#settings").click(function (){
+   $('#settings_modal').modal('show');
+    })
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.js"></script>
+
+</body>
+</html>
