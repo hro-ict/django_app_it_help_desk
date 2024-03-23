@@ -75,7 +75,7 @@ To run the project, you will need the following software and tools:
 
 To log in as an admin, follow these steps:
 
-1. Visit the login page of the IT Helpdesk system.
+1. Click on Login as Admin at Home Page.
 
 2. Enter the following credentials:
    - Username: admin@ithelpdesk.nl
