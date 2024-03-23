@@ -14,7 +14,7 @@ To run the project, you will need the following software and tools:
 - pip (Python package manager)
  -QR code for admin login
 
- ![QR Code for Admin Authentication](static/ota.png)
+ ![QR Code for Admin Authentication](/bweb1/static/ota.png)
 
 
 ### Installation
