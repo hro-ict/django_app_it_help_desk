@@ -14,7 +14,8 @@ To run the project, you will need the following software and tools:
 - pip (Python package manager)
  -QR code for admin login
 
- ![QR Code for Admin Authentication](/bweb1/static/ota.png)
+ ![OTP QR Code](https://raw.githubusercontent.com/hro-ict/django_app_it_help_desk/main/bweb1/static/otp.png)
+
 
 
 ### Installation
