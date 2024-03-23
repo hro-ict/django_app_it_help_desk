@@ -14,7 +14,6 @@ from django.views.decorators.http import require_POST
 import re
 import pyotp
 from django.db.models import Q
-from bs4 import BeautifulSoup
 import qrcode
 import pandas as pd
 from django.template.loader import get_template
