@@ -16,7 +16,7 @@ To run the project, you will need the following software and tools:
 
  ![OTP QR Code](https://github.com/hro-ict/django_app_it_help_desk/blob/main/bweb1/bweb1/otp.png)
 
-<!-- -->![screenshot](https://github.com/hro-ict/django_app_it_help_desk/blob/main/bweb1/bweb1/otp.png) <!-- -->
+
 
 ### Installation
 
