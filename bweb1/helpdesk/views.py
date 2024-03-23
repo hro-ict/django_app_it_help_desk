@@ -41,6 +41,7 @@ def database(request):
 
 
 def users(request):
+    search_term=""
     if "search_term" in request.GET:
         search_term= request.GET["search_term"]
         users = Users.objects.filter(
