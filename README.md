@@ -26,13 +26,21 @@ To run the project, you will need the following software and tools:
     git clone https://github.com/hro-ict/django_app_it_help_desk
     ```
 
-2. Create a virtual environment:
+
+
+2. Go to projectfolder:
+
+ ```bash
+    cd django_app_it_help_desk\bweb1\django_app_it_help_desk\bweb1
+    ```
+
+3. Create a virtual environment:
 
     ```bash
     python3 -m venv myenv
     ```
 
-3. Activate the virtual environment:
+4. Activate the virtual environment:
 
     - For Windows:
 
@@ -46,20 +54,20 @@ To run the project, you will need the following software and tools:
         source myenv/bin/activate
         ```
 
-4. Install dependencies:
+5. Install dependencies:
 
     ```bash
     pip install -r requirements.txt
     ```
 
-5. Create the database and start the application:
+6. Create the database and start the application:
 
     ```bash
     python manage.py migrate
     python manage.py runserver
     ```
 
-6. Navigate to `http://localhost:8000` in your browser.
+7. Navigate to `http://localhost:8000` in your browser.
 
 ### Usage
 
