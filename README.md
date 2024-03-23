@@ -69,14 +69,10 @@ To run the project, you will need the following software and tools:
 
 7. Navigate to `http://localhost:8000` in your browser.
 
-### Usage
 
-Information about how to use this project will go here.
 
 ## Contributing
 
 If you would like to contribute, please feel free to make suggestions or submit a pull request.
 
-## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
