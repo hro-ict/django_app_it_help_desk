@@ -12,6 +12,10 @@ To run the project, you will need the following software and tools:
 
 - Python 3.9.4
 - pip (Python package manager)
+ -QR code for admin login
+
+ ![QR Code for Admin Authentication](static/ota.png)
+
 
 ### Installation
 
