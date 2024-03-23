@@ -12,11 +12,11 @@ To run the project, you will need the following software and tools:
 
 - Python 3.9.4
 - pip (Python package manager)
- -QR code for admin login
+- QR code for admin login. Scan the QR code below with any authenticator app (such as Google Authenticator, Microsoft Authenticator). Then, generate an OTP code to log in as an admin
 
  ![OTP QR Code](https://github.com/hro-ict/django_app_it_help_desk/blob/main/bweb1/bweb1/otp.png)
 
-![screenshot](https://github.com/hro-ict/django_app_it_help_desk/blob/main/bweb1/bweb1/otp.png)
+<!-- -->![screenshot](https://github.com/hro-ict/django_app_it_help_desk/blob/main/bweb1/bweb1/otp.png) <!-- -->
 
 ### Installation
 
