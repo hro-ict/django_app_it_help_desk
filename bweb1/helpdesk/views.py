@@ -347,6 +347,7 @@ def trends(request):
 
 
 def home(request):
+
     if "name" in request.session:
         print("session bestaat")
         return redirect("/dashboard")
