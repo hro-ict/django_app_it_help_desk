@@ -1,24 +1,69 @@
-Mijn applicatie is een ticketsysteem voor de ICT-helpdesk van een organisatie. Met deze applicatie worden ICT-problemen geregistreerd.
+# Django Virtual Environment Project
 
-De applicatie kent twee typen gebruikers:
+This project is developed using the Django web framework and run in a virtual environment.
 
-Gewone gebruikers: Zij kunnen ICT-meldingen aanmaken via de website. Daarnaast kunnen ze eerdere meldingen bekijken en de status van hun meldingen monitoren.
-Behandelaars: Dit zijn de leden van het ICT-helpdeskteam. Zij kunnen de meldingen van gebruikers bekijken, eventuele oplossingen toevoegen en de tickets behandelen. Daarnaast hebben ze toegang tot trends van meldingen in grafiekvorm.
-Voor de twee typen gebruikers zijn er twee verschillende inlogschermen. Gewone gebruikers kunnen inloggen met hun e-mailadres en wachtwoord. Behandelaars moeten ook tweestapsverificatie gebruiken om in te loggen.
+## Getting Started
 
-Op het dashboard van gewone gebruikers kunnen ze:
+This guide provides general information on how to set up the project and run it in a virtual environment.
 
-Hun eigen meldingen bekijken en de status ervan controleren.
-Een nieuwe melding aanmaken.
-Admin gebruikers kunnen op hun dashboard:
+### Requirements
 
-De meldingen van gebruikers bekijken en behandelen.
-Trends van de meldingen als grafiek bekijken.
-In mijn project zijn er twee tabellen:
+To run the project, you will need the following software and tools:
 
-Gebruikers
-Tickets
-Hierbij heb ik een one-to-many relatie gebruikt. Elke gebruiker kan meerdere tickets hebben.
-Voor CSS heb ik voornamelijk Bootstrap gebruikt in plaats van vanilla CSS.
+- Python 3.x
+- pip (Python package manager)
 
-JavaScript wordt gebruikt voor data-analyse (met CanvasJS), AJAX-requests en voor het weergeven van waarschuwingsberichten (met SweetAlert).
+### Installation
+
+1. Clone the project:
+
+    ```bash
+    git clone https://github.com/hro-ict/django_app_it_help_desk
+    ```
+
+2. Create a virtual environment:
+
+    ```bash
+    python3 -m venv myenv
+    ```
+
+3. Activate the virtual environment:
+
+    - For Windows:
+
+        ```bash
+        myenv\Scripts\activate
+        ```
+
+    - For macOS and Linux:
+
+        ```bash
+        source myenv/bin/activate
+        ```
+
+4. Install dependencies:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+5. Create the database and start the application:
+
+    ```bash
+    python manage.py migrate
+    python manage.py runserver
+    ```
+
+6. Navigate to `http://localhost:8000` in your browser.
+
+### Usage
+
+Information about how to use this project will go here.
+
+## Contributing
+
+If you would like to contribute, please feel free to make suggestions or submit a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
