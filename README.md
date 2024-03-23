@@ -69,6 +69,30 @@ To run the project, you will need the following software and tools:
 
 7. Navigate to `http://localhost:8000` in your browser.
 
+## Usage
+
+### Logging in as Admin
+
+To log in as an admin, follow these steps:
+
+1. Visit the login page of the IT Helpdesk system.
+
+2. Enter the following credentials:
+   - Username: admin@ithelpdesk.nl
+   - Password: Admin1234
+
+3. Next, you'll need to provide a one-time password (OTP) for authentication. Follow these steps to generate an OTP token using an authenticator app:
+
+   - Open your authenticator app (such as Google Authenticator, Microsoft Authenticator).
+   
+   - If you haven't already, scan QR code above.
+   
+   - Once the account is added, the app will generate a new OTP token every few seconds.
+   
+   - Enter the current OTP token from the authenticator app into the provided field on the login page.
+
+4. After entering the OTP token, click on the "Login" button to access the admin dashboard.
+
 
 
 ## Contributing
