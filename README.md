@@ -31,7 +31,7 @@ To run the project, you will need the following software and tools:
 2. Go to project folder:
 
     ```bash
-    cd \django_app_it_help_desk\bweb1
+    cd django_app_it_help_desk\bweb1
     ```
 
 3. Create a virtual environment:
