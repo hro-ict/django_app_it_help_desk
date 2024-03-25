@@ -63,7 +63,6 @@ To run the project, you will need the following software and tools:
 6. Create the database and start the application:
 
     ```bash
-    python manage.py migrate
     python manage.py runserver
     ```
 
