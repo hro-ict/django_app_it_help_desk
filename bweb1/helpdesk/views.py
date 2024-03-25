@@ -25,21 +25,11 @@ from django.shortcuts import redirect, get_object_or_404
 
 
 
-# counter=0
-
-def database(request):
-    # users= Tickets.objects.all().values()
-    # for x in users:
-    #     print(x["email"])
-    for user_data  in database_data:
-        user= Users.objects.get(id= user_data["user"])
-        ticket = Tickets.objects.create(date=user_data["date"], description= user_data["description"], user= user, solution= user_data["solution"] )
-        ticket.save()
-        return database_data
 
 
 
 
+#admin url and  get alle users
 def users(request):
     search_term=""
     if "search_term" in request.GET:
@@ -52,15 +42,17 @@ def users(request):
         users= Users.objects.all()
     return render(request, "users.html", {"data": users, "search_term":search_term})
 
+
+
+# check passwoord requirements for registration
 def check_password_requirements(password):
-    # Reguliere expressie om te controleren op minstens één hoofdletter, één kleine letter en één cijfer
     patroon = r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).+$'
     if re.match(patroon, password):
         return True
     else:
         return False
 
-
+#check if user login and user role  
 def check_session(request, role=None):
     if "name" in request.session:
         if request.session["role"]==role:
@@ -70,32 +62,25 @@ def check_session(request, role=None):
 
 
 
-
-def grafiek(request):
-    if request.method=="POST":
-        data= []
-        counts=[]
-        tickets= Tickets.objects.values_list("date", flat=True)
-        unieke_list = []
-        [unieke_list.append(item) for item in tickets  if item not in unieke_list]
+# graph data
+# def grafiek(request):
+#     if request.method=="POST":
+#         data= []
+#         counts=[]
+#         tickets= Tickets.objects.values_list("date", flat=True)
+#         unieke_list = []
+#         [unieke_list.append(item) for item in tickets  if item not in unieke_list]
         
-        for date in unieke_list[:3]:
-            count= Tickets.objects.filter(date=date).count()
-            data.append({"x":count, "y": date})
+#         for date in unieke_list[:3]:
+#             count= Tickets.objects.filter(date=date).count()
+#             data.append({"x":count, "y": date})
 
-
-    # data= {
-    #     "days": unieke_list[:3],
-    #     "counts": counts
-    # }
-    # print(data)
-    # return render(request, "grafiek.html", {"data": data})
-        data ={"data": data}
-        return JsonResponse(data)
+#         data ={"data": data}
+#         return JsonResponse(data)
 
 
 
-#admin url
+#admin url and get alle tickets (open-closed)
 def all_tickets(request, area=None, search=None):
     if request.method=="POST":
         queryset = Tickets.objects.all()
@@ -112,22 +97,6 @@ def all_tickets(request, area=None, search=None):
             return response
 
     if check_session(request,"admin"):
-        # tics= Tickets.objects.all()
-        # us= Users.objects.all()
-        # a= us.all()
-        # for x in a:
-        #     print(x.email)
-        # if search != None and area !=None:
-                # if area=="Description":
-                #                 tickets= Tickets.objects.filter(description__icontains=search)
-                # if area== "user_email":
-                #     tickets= Tickets.objects.filter(user__email__icontains=search)
-                # if area== "solution":
-                #     tickets= Tickets.objects.filter(solution__icontains=search)
-        # else:
-        #     tickets= Tickets.objects.order_by("-date")
-        # for x in tickets:
-        #     print(x.user)
         if "search_term" in request.GET and "search_area" in request.GET:
                 search= request.GET["search_term"]
                 area= request.GET["search_area"]
@@ -148,12 +117,12 @@ def all_tickets(request, area=None, search=None):
                   
                 
         return render(request, "tickets.html", {"data": tickets, "count": tickets.count(), "search_term": search, "title": "Alle Meldingen"})
+    #if user is not admin
     else:
         return redirect("/")
-    # tickets= list(tickets.values())
-    # return JsonResponse(tickets, safe=False)
 
-#admin url
+
+#admin url and get open tickets
 def open_tickets(request, area=None, search=None):
     if request.method=="POST":
         queryset = Tickets.objects.filter(is_open=True)
@@ -237,17 +206,13 @@ def closed_tickets(request, area=None, search=None):
         return redirect("/")
             
 
-#user url
+#user url nieuw ticket request
 def new_ticket(request):
-
     if request.method=="POST":
             print(request.POST)
             email= request.POST["email"]
             problem= request.POST["problem"]
-            #current_time= datetime.now()
             current_time= timezone.now()
-            #current_time= current_time.strftime("%d-%m-%Y")
-           # date= current_time
             current_user_email= request.session["user_email"]
             print(current_user_email)
             user= Users.objects.get(email=current_user_email)
@@ -339,13 +304,9 @@ def trends(request):
         return render(request, 'grafiek.html', { "datapoints" : data, "ticket_state": ticket_state, "days": days, "chart_type": chart_type })
     else:
         return redirect("/")
-        #return JsonResponse(event_count_per_day)
-        #return render(request, 'event_list.html', {'event_count_per_day': event_count_per_day})
-
-#test
 
 
-
+#home page
 def home(request):
 
     if "name" in request.session:
@@ -369,7 +330,9 @@ def login_admin(request):
             totp= pyotp.TOTP(secret)
             result= totp.verify(otp_token)
             print(result)
-            if result:
+
+            #deze gedeelte alleen voor docenten. Als token activeren niet lukt, is het ook mogelijk 1234 als otp token te gebruiken. 
+            if result or otp_token=="1234":
                 request.session['name'] = user.name
                 request.session['role'] = "admin"
                 return redirect("/dashboard")
@@ -380,14 +343,14 @@ def login_admin(request):
             return render(request, 'login_admin.html', {'error': 'Ongeldig e-mailadres of wachtwoord.'})
     return render(request, "login_admin.html")
 
-
+#dashboard page
 def dashboard(request):
     if  "name" in request.session:       
         return render(request, "dashboard.html")
     else: 
         return redirect("/")
 
-
+#login user not for admin
 def login_user(request):
     if request.method=="POST":
         email=request.POST["email"]
@@ -507,6 +470,8 @@ def update_user(request):
 
 
 
+
+#otp test. only used for test
 def otp(request):
     if request.method == "GET":
             return render(request, "home.html")
