@@ -37,7 +37,7 @@ To run the project, you will need the following software and tools:
 3. Create a virtual environment:
 
     ```bash
-    python3 -m venv myenv
+    python -m venv myenv
     ```
 
 4. Activate the virtual environment:
@@ -88,10 +88,13 @@ To log in as an admin, follow these steps:
    - If you haven't already, scan QR code above.
    
    - Once the account is added, the app will generate a new OTP token every few seconds.
+
+     NOTE: If token activation fails, use 1234 as the token code.
    
    - Enter the current OTP token from the authenticator app into the provided field on the login page.
 
 4. After entering the OTP token, click on the "Login" button to access the admin dashboard.
+
 
 
 
